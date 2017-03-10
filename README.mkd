@@ -1,5 +1,7 @@
 # Benchmark
 
+[![Build Status](https://secure.travis-ci.org/kevinlebrun/benchmark.png)](http://travis-ci.org/kevinlebrun/benchmark?branch=master)
+
 My little simple benchmark library for PHP.
 
 ## Usage
