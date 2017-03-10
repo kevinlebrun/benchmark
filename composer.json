@@ -1,0 +1,27 @@
+{
+    "name": "kevinlebrun/benchmark",
+    "description": "My little benchmark library",
+    "keywords": ["performance", "benchmark", "bench", "measure", "time", "timing"],
+    "homepage": "https://github.com/kevinlebrun/benchmark",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^5.0",
+        "squizlabs/php_codesniffer": "^2.8"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Le Brun",
+            "email": "lebrun.k@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Benchmark\\": "src/Benchmark/",
+            "Tests\\Benchmark\\": "tests/Benchmark/"
+        }
+    }
+}

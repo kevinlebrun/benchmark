@@ -1,0 +1,59 @@
+# Benchmark
+
+My little simple benchmark library for PHP.
+
+## Usage
+
+Look at the `example.php` file.
+
+```php
+$echo = Benchmark::run(function ($b) {
+    for ($i = 0; $i < $b->getN(); $i++) {
+        echo "Something";
+    }
+}, 'echo');
+$present($echo);
+
+$sleep = Benchmark::run(function ($b) {
+    sleep(2);
+
+    // You can reset the timer in case of heavy bootstraping code
+    $b->reset();
+    for ($i = 0; $i < $b->getN(); $i++) {
+        echo "Something";
+    }
+}, 'echo with bootstraping code');
+$present($sleep);
+```
+
+## Install
+
+Installation via composer is highly recommended.
+
+```json
+{
+    "require": {
+        "kevinlebrun/benchmark": "1.*"
+    }
+}
+```
+
+    $ php composer.phar install
+
+## Contributing
+
+Install development dependencies:
+
+    $ php composer.phar install --dev
+
+All tests must pass:
+
+    $ vendor/bin/phpunit -c phpunit.xml
+
+Code style conventions must be followed:
+
+    $ vendor/bin/phpcs --standard=phpcs.xml -p .
+
+## License
+
+(The MIT License)
