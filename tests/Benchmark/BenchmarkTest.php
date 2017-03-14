@@ -18,8 +18,8 @@ class BenchmarkTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('My Benchmark', $report->getName());
         $this->assertEquals(100, $report->getN());
-        $this->assertTrue($report->getTime() < 1, 'Empty benchmark should run in less than 1 ms');
-        $this->assertTrue($report->getTimePerOp() < 1, 'Empty benchmark operation should run in less than 1 ms');
+        $this->assertTrue($report->getTime() * 1000 < 1, 'Empty benchmark should run in less than 1 ms');
+        $this->assertTrue($report->getTimePerOp() * 1000 < 1, 'Empty benchmark operation should run in less than 1 ms');
 
         $this->assertTrue($hasBeenRan, 'Benchmark should have been ran');
     }
@@ -27,7 +27,7 @@ class BenchmarkTest extends \PHPUnit_Framework_TestCase
     public function testBenchmarkShouldHideOutput()
     {
         ob_start();
-        $report = Benchmark::run(function () use (&$hasBeenRan) {
+        $report = Benchmark::run(function () {
             echo 'coucou';
         }, 'My Benchmark');
         $output = ob_get_contents();
